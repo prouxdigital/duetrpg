@@ -11,26 +11,26 @@
 	<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+	<section class="container">
+		<h1 class="title">
+			<span class="icon"><i class="fas fa-dragon" aria-hidden="true"></i></span>
+			<span>Duet RPG</span>
+		</h1>
 
-	<section class="hero is-light is-fullheight">
-		<div class="hero-body">
-    		<div class="container">
-    			<h1 class="title">Welcome to <b>Duet RPG</b></h1>
-				<p class="subtitle">One-on-one custom tabletop roleplaying game kit</p>
-
-				<a class="button is-outlined is-large" href="player.html">
-					<span class="icon is-large">
-						<i class="far fa-dice-d20"></i>
-					</span>&nbsp;I'm the Player
-				</a>
-		
-				<a class="button is-dark is-large" href="gamemaster.html">
-					<span class="icon">
-						<i class="fas fa-dungeon"></i>
-					</span>&nbsp;I'm the Game Master
-				</a>
-			</div>
+		<div class="tabs">
+			<ul>
+				<li class="is-active">
+					<a href="#" id="playerTab">Player</a>
+				</li>
+				<li>
+					<a href="#" id="gmTab">Game Master</a>
+				</li>
+			</ul>
 		</div>
+
+		<div id="player">Player</div>
+
+		<div id="gm" class="is-hidden">GM</div>
 	</section>
 		
 	<script src="js/scripts.js"></script>
