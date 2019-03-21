@@ -44,10 +44,10 @@
 								<div class="control">
 									<span class="select">
 										<select id="dmg" name="">
-											<option value="0">d4</option>
-											<option value="1">d6</option>
-											<option value="2">d8</option>
-											<option value="3">d10</option>
+											<option value="0">1d4+1</option>
+											<option value="1">1d6+1</option>
+											<option value="2">1d8+1</option>
+											<option value="3">1d10+1</option>
 										</select>
 									</span>
 								</div>
@@ -97,17 +97,14 @@
 							</span>
 						</div>
 						<div class="control">
-							<button class="button is-static">d</button>
-						</div>
-						<div class="control">
 							<span class="select">
 								<select id="diceSides" name="diceSides">
-									<option value="4">4</option>
-									<option value="6">6</option>
-									<option value="8">8</option>
-									<option value="10">10</option>
-									<option value="12">12</option>
-									<option value="20" selected="true">20</option>
+									<option value="4">d4</option>
+									<option value="6">d6</option>
+									<option value="8">d8</option>
+									<option value="10">d10</option>
+									<option value="12">d12</option>
+									<option value="20" selected="true">d20</option>
 								</select>
 							</span>
 						</div>
@@ -135,7 +132,7 @@
 					</button>
 					<br/>
 					<div id="diceResultBox" class="box">
-						<p id="diceResult" class="is-size-3 has-text-centered">0</p>
+						<p id="diceResult" class="is-size-3 has-text-centered"> </p>
 					</div>
 				</div>
 			</div>
