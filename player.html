@@ -15,12 +15,63 @@
 <body>
 	<section>
 		<div class="container is-narrow">
+			<h1 id="name" class="title">Chickweed</h1>
+			<p class="subtitle">
+				Level <span id="lvl">1</span> <span id="job">Adventurer</span>
+			</p>
 			<div class="columns">
 				<div class="column">
-					<h1 id="name" class="title">Chickweed</h1>
-					<p class="subtitle">
-						Level <span id="lvl">1</span> <span id="job">Adventurer</span>
-					</p>
+					<div class="columns is-mobile is-multiline">
+						<div class="column is-narrow">
+							<div class="field">
+								<label class="label" for="">AC</label>
+								<div class="control">
+									<span class="select">
+										<select id="ac" name="">
+											<option value="10">10</option>
+											<option value="12">12</option>
+											<option value="14">14</option>
+											<option value="16">16</option>
+										</select>
+									</span>
+								</div>
+							</div>
+						</div>
+						
+						<div class="column is-narrow">
+							<div class="field">
+								<label class="label" for="dmg">DMG</label>
+								<div class="control">
+									<span class="select">
+										<select id="dmg" name="">
+											<option value="0">d4</option>
+											<option value="1">d6</option>
+											<option value="2">d8</option>
+											<option value="3">d10</option>
+										</select>
+									</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="column">
+							<label class="label" for="">&nbsp;</label>
+							<button class="button is-fullwidth is-light">
+								<span class="icon"><i class="fas fa-edit"></i></span>
+								<span>Edit</span>
+							</button>
+						</div>
+					</div>
+
+					<label class="label" for="">HP</label>
+					<div class="field has-addons">
+						<div class="control is-expanded">
+							<input id="currentHP" type="number" name="currentHP" value="100" max="10" min="0" class="input is-medium has-text-centered">
+						</div>
+						<div class="control">
+							<button id="maxHP" class="button is-static is-medium">100</button>
+						</div>
+					</div>
 
 					<label class="label" for="">Traits</label>
 					<div id="traits" class="tags">
@@ -29,25 +80,28 @@
 						<div class="tag is-rounded">WIS -2</div>
 						<div class="tag is-rounded">CHA -1</div>
 					</div>
-
-					<button class="button is-small is-rounded is-fullwidth is-outlined">
-						<span class="icon"><i class="fas fa-eye"></i></span>
-						<span>View details</span>
-					</button>
 				</div>
 				
-				<div class="column">
+				<div class="column is-narrow">
 					<label class="label" for="">Dice Simulator</label>
 					<div class="field has-addons">
-						<div class="control is-expanded">
-							<input id="diceAmt" class="input" type="number" value="1" min="1" max="5" name="">
+						<div class="control">
+							<span class="select">
+								<select id="diceAmt" name="diceAmount">
+									<option value="5">5</option>
+									<option value="4">4</option>
+									<option value="3">3</option>
+									<option value="2">2</option>
+									<option value="1" selected="true">1</option>
+								</select>
+							</span>
 						</div>
 						<div class="control">
 							<button class="button is-static">d</button>
 						</div>
 						<div class="control">
 							<span class="select">
-								<select id="diceSides" name="">
+								<select id="diceSides" name="diceSides">
 									<option value="4">4</option>
 									<option value="6">6</option>
 									<option value="8">8</option>
@@ -57,9 +111,22 @@
 								</select>
 							</span>
 						</div>
-						<div class="control"><button class="button is-static">+</button></div>
-						<div class="control is-expanded">
-							<input id="diceMod" class="input" type="number" value="0" min="-5" max="5" name="">
+						<div class="control">
+							<span class="select">
+								<select id="diceMod" name="diceMod">
+									<option value="5">+5</option>
+									<option value="4">+4</option>
+									<option value="3">+3</option>
+									<option value="2">+2</option>
+									<option value="1">+1</option>
+									<option value="0" selected="true">0</option>
+									<option value="-1">-1</option>
+									<option value="-2">-2</option>
+									<option value="-3">-3</option>
+									<option value="-4">-4</option>
+									<option value="-5">-5</option>
+								</select>
+							</span>
 						</div>
 					</div>
 					<button id="rollDice" class="button is-fullwidth">
@@ -69,52 +136,6 @@
 					<br/>
 					<div id="diceResultBox" class="box">
 						<p id="diceResult" class="is-size-3 has-text-centered">0</p>
-					</div>
-				</div>
-			</div>
-			
-			<div class="columns is-mobile is-multiline">
-				<div class="column">
-					<label class="label" for="">HP</label>
-					<div class="field has-addons">
-						<div class="control is-expanded">
-							<input id="currentHP" type="number" name="currentHP" value="100" max="10" min="0" class="input is-medium has-text-centered">
-						</div>
-						<div class="control">
-							<button id="maxHP" class="button is-static is-medium">/&nbsp;100</button>
-						</div>
-					</div>
-				</div>
-				
-				<div class="column is-narrow">
-					<div class="field">
-						<label class="label" for="">AC</label>
-						<div class="control">
-							<span class="select is-medium">
-								<select id="ac" name="">
-									<option value="10">10</option>
-									<option value="12">12</option>
-									<option value="14">14</option>
-									<option value="16">16</option>
-								</select>
-							</span>
-						</div>
-					</div>
-				</div>
-				
-				<div class="column is-narrow">
-					<div class="field">
-						<label class="label" for="dmg">DMG</label>
-						<div class="control">
-							<span class="select is-medium">
-								<select id="dmg" name="">
-									<option value="0">d4</option>
-									<option value="1">d6</option>
-									<option value="2">d8</option>
-									<option value="3">d10</option>
-								</select>
-							</span>
-						</div>
 					</div>
 				</div>
 			</div>
