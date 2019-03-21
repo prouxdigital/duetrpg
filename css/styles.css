@@ -12,6 +12,13 @@ body {
 	padding: 0 16px;
 }
 
+#diceResultBox {
+	min-height: 110px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 #currentHP {
 	min-width: 64px;
 }
