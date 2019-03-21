@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Duet RPG - Player</title>
+
+	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+	<section>
+		<div class="container is-narrow">
+			<div class="columns">
+				<div class="column">
+					<h1 id="name" class="title">Chickweed</h1>
+					<p class="subtitle">
+						Level <span id="lvl">1</span> <span id="job">Adventurer</span>
+					</p>
+
+					<label class="label" for="">Traits</label>
+					<div id="traits" class="tags">
+						<div class="tag is-rounded">STR +2</div>
+						<div class="tag is-rounded">VIT +1</div>
+						<div class="tag is-rounded">WIS -2</div>
+						<div class="tag is-rounded">CHA -1</div>
+					</div>
+
+					<button class="button is-small is-rounded is-fullwidth is-outlined">
+						<span class="icon"><i class="fas fa-eye"></i></span>
+						<span>View details</span>
+					</button>
+				</div>
+				
+				<div class="column">
+					<label class="label" for="">Dice Simulator</label>
+					<div class="field has-addons">
+						<div class="control is-expanded">
+							<input id="diceAmt" class="input" type="number" value="1" min="1" max="5" name="">
+						</div>
+						<div class="control">
+							<button class="button is-static">d</button>
+						</div>
+						<div class="control">
+							<span class="select">
+								<select id="" name="">
+									<option value="4">4</option>
+									<option value="6">6</option>
+									<option value="8">8</option>
+									<option value="10">10</option>
+									<option value="12">12</option>
+									<option value="20" selected="true">20</option>
+								</select>
+							</span>
+						</div>
+						<div class="control"><button class="button is-static">+</button></div>
+						<div class="control is-expanded">
+							<input id="diceMod" class="input" type="number" value="0" min="-5" max="5" name="">
+						</div>
+					</div>
+					<button class="button is-fullwidth">
+						<span class="icon"><i class="fas fa-dice-d20"></i></span>
+						&nbsp;Roll
+					</button>
+					<br/>
+					<div class="box">
+						<p id="diceResult" class="is-size-3 has-text-centered">0</p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="columns is-mobile is-multiline">
+				<div class="column">
+					<label class="label" for="">HP</label>
+					<div class="field has-addons">
+						<div class="control is-expanded">
+							<input id="currentHP" type="number" name="currentHP" value="100" max="10" min="0" class="input is-medium has-text-centered">
+						</div>
+						<div class="control">
+							<button id="maxHP" class="button is-static is-medium">/&nbsp;100</button>
+						</div>
+					</div>
+				</div>
+				
+				<div class="column is-narrow">
+					<div class="field">
+						<label class="label" for="">AC</label>
+						<div class="control">
+							<span class="select is-medium">
+								<select id="ac" name="">
+									<option value="10">10</option>
+									<option value="12">12</option>
+									<option value="14">14</option>
+									<option value="16">16</option>
+								</select>
+							</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="column is-narrow">
+					<div class="field">
+						<label class="label" for="dmg">DMG</label>
+						<div class="control">
+							<span class="select is-medium">
+								<select id="dmg" name="">
+									<option value="0">d4</option>
+									<option value="1">d6</option>
+									<option value="2">d8</option>
+									<option value="3">d10</option>
+								</select>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="tabs">
+				<ul>
+					<li class="is-active">
+						<a href="">
+							<span class="icon"><i class="fas fa-fist-raised"></i></span>
+							<span>Abilities</span>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<span class="icon"><i class="fas fa-briefcase"></i></span>
+							<span>Bag</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<article id="abilities" class="tab-page">
+				<section>
+					<h2 class="is-size-4">Trick</h2>
+					<p id="trick"></p>
+				</section>
+				<hr/>
+				<section>
+					<h2 class="is-size-4">Perk</h2>
+					<p id="perk"></p>
+				</section>
+				<hr/>
+				<section>
+					<h2 class="is-size-4">Feat</h2>
+					<p id="feat"></p>
+				</section>
+			</article>
+
+			<article id="bag" class="tab-page is-hidden">
+				<div class="level is-mobile">
+					<div class="level-left is-narrow">
+						<button class="button is-primary">Add an item</button>
+					</div>
+
+					<div class="level-right">
+						<div class="field has-addons">
+							<div class="control">
+								<input id="gold" type="number" name="" value="100" class="input has-text-right">
+							</div>
+							<div class="control">
+								<button class="button is-static">g</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="box table-box">
+					<table class="table is-fullwidth">
+						<tbody>
+							<tr>
+								<td>
+									<div class="level">
+										<div class="level-left">
+											Leather armor set
+										</div>
+
+										<div class="level-right">
+											<div class="tags">
+												<div class="tag is-rounded">+2 AC</div>
+												<div class="tag is-rounded">-1 to Initiative Rolls</div>
+											</div>
+										</div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>Lotus Medallion</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="level">
+										<div class="level-left">Scroll of Wind-walking</div>
+										<div class="level-right">
+											<div class="tag is-rounded">Burn to walk on air for 100ft</div>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</article>
+		</div>
+	</section>
+
+	<script src="js/scripts.js"></script>
+</body>
+</html>

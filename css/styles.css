@@ -1,5 +1,25 @@
+body, .button, .input, .select {
+	font-family: 'IBM Plex Mono', monospace !important;
+}
+
 body {
 	margin-top: 32px;
 	margin-bottom: 64px;
-	font-family: 'IBM Plex Mono', monospace;
+}
+
+.container.is-narrow {
+	max-width: 640px;
+	padding: 0 16px;
+}
+
+#currentHP {
+	min-width: 64px;
+}
+
+.table-box {
+	padding: 0;
+}
+
+.table-box>table {
+	border-radius: 6px;
 }
