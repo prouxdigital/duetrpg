@@ -50,7 +50,7 @@
 		<button class="modal-close is-large" aria-label="close"></button>
 	</div>
 
-	<section>
+	<section id="viewCharacter">
 		<div class="container is-narrow">
 			<h1 id="name" class="title">Chickweed</h1>
 			<p class="subtitle">
@@ -209,20 +209,12 @@
 			</article>
 
 			<article id="bag" class="tab-page is-hidden">
-				<div class="level is-mobile">
-					<div class="level-left is-narrow">
-						<button class="button is-primary">Add an item</button>
+				<div class="field has-addons">
+					<div class="control is-expanded">
+						<input id="gold" type="number" name="" value="100" class="input has-text-right">
 					</div>
-
-					<div class="level-right">
-						<div class="field has-addons">
-							<div class="control">
-								<input id="gold" type="number" name="" value="100" class="input has-text-right">
-							</div>
-							<div class="control">
-								<button class="button is-static">g</button>
-							</div>
-						</div>
+					<div class="control">
+						<button class="button is-static">gold</button>
 					</div>
 				</div>
 
@@ -236,7 +228,7 @@
 											Leather armor set
 										</div>
 
-										<div class="level-right">
+										<div class="level-right is-marginless">
 											<div class="tags">
 												<div class="tag is-rounded">+2 AC</div>
 												<div class="tag is-rounded">-1 to Initiative Rolls</div>
@@ -252,7 +244,7 @@
 								<td>
 									<div class="level">
 										<div class="level-left">Scroll of Wind-walking</div>
-										<div class="level-right">
+										<div class="level-right is-marginless">
 											<div class="tag is-rounded">Burn to walk on air for 100ft</div>
 										</div>
 									</div>
@@ -260,6 +252,10 @@
 							</tr>
 						</tbody>
 					</table>
+				</div>
+				
+				<div class="has-text-right">
+				    <button class="button is-primary">Add an item</button>
 				</div>
 			</article>
 		</div>
