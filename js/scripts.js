@@ -1,8 +1,11 @@
 ;(function(){
 	document.getElementById("rollDice").addEventListener("click", function() {
 		var el = document.getElementById("diceResult");
+		var btn = this;
+		btn.disabled = true;
 		el.innerHTML = "<span class=\"icon\"><i class=\"fas fa-dice-d20 fa-pulse\"></i></span>";
 		setTimeout(function() {
+		    btn.disabled = false;
 			el.innerHTML = rollDice();
 		}, 600);
 	});
@@ -39,7 +42,13 @@
 
 	function randomIntFromRange(min,max) {
 		min = Math.ceil(min);
-    	max = Math.floor(max);
-    	return Math.floor(Math.random() * (max - min + 1)) + min;
+    	    max = Math.floor(max);
+    	    return Math.floor(Math.random() * (max - min + 1)) + min;
 	}
+	
+	[].call.forEach(document.querySelectorAll("#tabs a"), function(el) {
+	    el.addEventListener("click", function() {
+	        
+	    });
+	});
 })();
