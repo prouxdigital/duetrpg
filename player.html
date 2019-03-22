@@ -13,6 +13,16 @@
 	<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+	<div id="editModal" class="modal is-active">
+		<div class="modal-background"></div>
+		<div class="modal-content">
+			<div class="box">
+				Test
+			</div>
+		</div>
+		<button class="modal-close is-large" aria-label="close"></button>
+	</div>
+
 	<section>
 		<div class="container is-narrow">
 			<h1 id="name" class="title">Chickweed</h1>
@@ -56,7 +66,7 @@
 
 						<div class="column">
 							<label class="label" for="">&nbsp;</label>
-							<button class="button is-fullwidth is-light">
+							<button id="editCharacter" class="button is-fullwidth is-light">
 								<span class="icon"><i class="fas fa-edit"></i></span>
 								<span>Edit</span>
 							</button>
@@ -132,7 +142,7 @@
 					</button>
 					<br/>
 					<div id="diceResultBox" class="box">
-						<p id="diceResult" class="is-size-3 has-text-centered"> </p>
+						<p id="diceResult" class="is-size-3 has-text-centered">-</p>
 					</div>
 				</div>
 			</div>
@@ -157,17 +167,17 @@
 			<article id="abilities" class="tab-page">
 				<section>
 					<h2 class="is-size-4">Trick</h2>
-					<p id="trick"></p>
+					<p id="trick">This is a trick.</p>
 				</section>
 				<hr/>
 				<section>
 					<h2 class="is-size-4">Perk</h2>
-					<p id="perk"></p>
+					<p id="perk">This is a perk.</p>
 				</section>
 				<hr/>
 				<section>
 					<h2 class="is-size-4">Feat</h2>
-					<p id="feat"></p>
+					<p id="feat">This is a feat.</p>
 				</section>
 			</article>
 
