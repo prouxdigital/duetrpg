@@ -17,7 +17,34 @@
 		<div class="modal-background"></div>
 		<div class="modal-content">
 			<div class="box">
-				Test
+				<h1 class="title">Character Creator</h1>
+				<div class="field">
+					<label for="characterName" class="label">Name</label>
+					<div class="control">
+						<input type="text" name="characterName" id="charName" value="Chickweed" class="input">
+					</div>
+				</div>
+				<div class="columns">
+					<div class="column is-narrow">
+						<label for="characterLevel" class="label">Level</label>
+						<div class="field has-addons">
+							<div class="control">
+								<input type="number" name="characterLevel" id="charLvl" value="1" class="input" min="1" max="20" readonly>
+							</div>
+							<div class="control">
+								<button class="button is-success" onclick="document.getElementById('charLvl').value++; Number(document.getElementById('charLvl').value) >= 20 ? this.disabled = true : null;">Level Up</button>
+							</div>
+						</div>
+					</div>
+					<div class="column">
+						<div class="field">
+							<label for="characterJob" class="label">Job</label>
+							<div class="control">
+								<input type="text" name="characterJob" id="charJob" value="Adventurer" class="input">
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<button class="modal-close is-large" aria-label="close"></button>
