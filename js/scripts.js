@@ -17,7 +17,7 @@
 		e.stopPropagation();
 	});
 
-	const rollDice = () => {
+	const rollDice = _ => {
 		let amt = Number(document.getElementById("diceAmt").value),
 			sides = Number(document.getElementById("diceSides").value),
 			mod = Number(document.getElementById("diceMod").value);
@@ -51,7 +51,7 @@
 		return Math.floor(Math.random() * (max - min + 1)) + min;
 	};
 
-	document.getElementById("rollDice").addEventListener("click", () => {
+	document.getElementById("rollDice").addEventListener("click", _ => {
 		let el = document.getElementById("diceResult"),
 			btn = this;
 		
@@ -64,7 +64,7 @@
 		}, 600);
 	});
 
-	const toggleTab = (el) => {
+	const toggleTab = el => {
 		if(el.parentNode.classList.contains("is-active")) return;
 		
 		[].forEach.call(document.querySelectorAll(".tabs li"), el => {
