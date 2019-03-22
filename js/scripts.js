@@ -23,7 +23,7 @@
 			mod = Number(document.getElementById("diceMod").value);
 
 		if(amt === 1 && mod === 0) return randomIntFromRange(1, sides);
-		
+
 		let resultsArray = [],
 			total = 0;
 
