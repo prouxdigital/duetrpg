@@ -1,7 +1,11 @@
 ;(function(){
 	const toggleModal = isActive => {
 		let modal = document.getElementById("editModal");
-		isActive ? modal.classList.remove("is-active") : modal.classList.add("is-active");
+		if(isActive) {
+		    modal.classList.remove("is-active");
+		} else {
+		    modal.classList.add("is-active");
+		}
 	};
 
 	document.getElementById("editCharacter").addEventListener("click", e => {
