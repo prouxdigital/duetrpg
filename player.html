@@ -13,17 +13,30 @@
 	<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-	<div id="editModal" class="modal is-active">
+	<div id="editModal" class="modal">
 		<div class="modal-background"></div>
 		<div class="modal-content">
 			<div class="box">
 				<h1 class="title">Character Creator</h1>
-				<div class="field">
-					<label for="characterName" class="label">Name</label>
-					<div class="control">
-						<input type="text" name="characterName" id="charName" value="Chickweed" class="input">
-					</div>
-				</div>
+                <div class="columns">
+                    <div class="column">
+                        <div class="field">
+                            <label for="characterName" class="label">Name</label>
+                            <div class="control">
+                                <input type="text" name="characterName" id="charName" value="Ifir" class="input">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="field">
+                            <label for="characterNamePro" class="label">Pronounciation</label>
+                            <div class="control">
+                                <input type="text" name="characterNamePro" id="charNamePro" value="ee-fur" class="input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 				<div class="columns">
 					<div class="column is-narrow">
 						<label for="characterLevel" class="label">Level</label>
@@ -36,15 +49,62 @@
 							</div>
 						</div>
 					</div>
+                    <div class="column">
+                        <div class="field">
+                            <label for="characterRace" class="label">Race</label>
+                            <div class="control">
+                                <input id="charRace" type="text" name="characterRace" value="Aasimar Half-Elf" class="input">
+                            </div>
+                        </div>
+                    </div>
 					<div class="column">
 						<div class="field">
 							<label for="characterJob" class="label">Job</label>
 							<div class="control">
-								<input type="text" name="characterJob" id="charJob" value="Adventurer" class="input">
+								<input type="text" name="characterJob" id="charJob" value="Rogue" class="input">
 							</div>
 						</div>
 					</div>
 				</div>
+                
+                <div class="columns is-mobile is-multiline">
+                    <div class="column is-one-third-mobile is-2-tablet">
+                        <div class="field">
+                            <label class="label" for="">STR&nbsp;<span id="strMod">(-1)</span></label>
+                            <div class="control"><input id="str" type="number" name="str" value="8" min="0" class="input"></div>
+                        </div>
+                    </div>
+                    <div class="column is-one-third-mobile is-2-tablet">
+                        <div class="field">
+                            <label class="label" for="">DEX&nbsp;<span id="dexMod">(+2)</span></label>
+                            <div class="control"><input id="dex" type="number" name="dex" value="15" min="0" class="input"></div>
+                        </div>
+                    </div>
+                    <div class="column is-one-third-mobile is-2-tablet">
+                        <div class="field">
+                            <label class="label" for="">CON&nbsp;<span id="conMod">(+0)</span></label>
+                            <div class="control"><input id="con" type="number" name="con" value="11" min="0" class="input"></div>
+                        </div>
+                    </div>
+                    <div class="column is-one-third-mobile is-2-tablet">
+                        <div class="field">
+                            <label class="label" for="">INT&nbsp;<span id="intMod">(+2)</span></label>
+                            <div class="control"><input id="int" type="number" name="int" value="14" min="0" class="input"></div>
+                        </div>
+                    </div>
+                    <div class="column is-one-third-mobile is-2-tablet">
+                        <div class="field">
+                            <label class="label" for="">WIS&nbsp;<span id="wisMod">(+2)</span></label>
+                            <div class="control"><input id="wis" type="number" name="wis" value="15" min="0" class="input"></div>
+                        </div>
+                    </div>
+                    <div class="column is-one-third-mobile is-2-tablet">
+                        <div class="field">
+                            <label class="label" for="">CHA&nbsp;<span id="chaMod">(+3)</span></label>
+                            <div class="control"><input id="cha" type="number" name="cha" value="16" min="0" class="input"></div>
+                        </div>
+                    </div>
+                </div>
 			</div>
 		</div>
 		<button class="modal-close is-large" aria-label="close"></button>
@@ -52,9 +112,9 @@
 
 	<section>
 		<div class="container is-narrow">
-			<h1 id="name" class="title">Chickweed</h1>
+			<h1 id="name" class="title">Ifir <small class="has-text-grey-light">(ee-fur)</small></h1>
 			<p class="subtitle">
-				Level <span id="lvl">1</span> <span id="job">Adventurer</span>
+				Level <span id="lvl">1</span> <span id="job">Aasimar Half-Elf Rogue</span>
 			</p>
 			<div class="columns">
 				<div class="column">
@@ -66,7 +126,7 @@
 									<span class="select">
 										<select id="ac" name="">
 											<option value="10">10</option>
-											<option value="12">12</option>
+											<option value="12" selected="true">12</option>
 											<option value="14">14</option>
 											<option value="16">16</option>
 										</select>
@@ -81,10 +141,10 @@
 								<div class="control">
 									<span class="select">
 										<select id="dmg" name="">
-											<option value="0">1d4+1</option>
-											<option value="1">1d6+1</option>
-											<option value="2">1d8+1</option>
-											<option value="3">1d10+1</option>
+											<option value="0">1d4</option>
+											<option value="1">1d6</option>
+											<option value="2">1d8</option>
+											<option value="3">1d10</option>
 										</select>
 									</span>
 								</div>
@@ -100,22 +160,24 @@
 						</div>
 					</div>
 
-					<label class="label" for="">HP</label>
+					<label class="label" for="">Hit Points</label>
 					<div class="field has-addons">
 						<div class="control is-expanded">
-							<input id="currentHP" type="number" name="currentHP" value="100" max="10" min="0" class="input is-medium has-text-centered">
+							<input id="currentHP" type="number" name="currentHP" value="11" max="11" min="-11" class="input is-medium has-text-centered">
 						</div>
 						<div class="control">
-							<button id="maxHP" class="button is-static is-medium">100</button>
+							<button id="maxHP" class="button is-static is-medium">11</button>
 						</div>
 					</div>
 
 					<label class="label" for="">Traits</label>
 					<div id="traits" class="tags">
-						<div class="tag is-rounded">STR +2</div>
-						<div class="tag is-rounded">VIT +1</div>
-						<div class="tag is-rounded">WIS -2</div>
-						<div class="tag is-rounded">CHA -1</div>
+						<div class="tag is-rounded is-danger">STR 8 (-1)</div>
+						<div class="tag is-rounded is-success">DEX 15 (+2)</div>
+						<div class="tag is-rounded">CON 11 (+0)</div>
+						<div class="tag is-rounded is-success">INT 14 (+2)</div>
+						<div class="tag is-rounded is-success">WIS 15 (+2)</div>
+						<div class="tag is-rounded is-success">CHA 16 (+3)</div>
 					</div>
 				</div>
 				
@@ -125,6 +187,11 @@
 						<div class="control">
 							<span class="select">
 								<select id="diceAmt" name="diceAmount">
+									<option value="10">10</option>
+									<option value="9">9</option>
+									<option value="8">8</option>
+									<option value="7">7</option>
+									<option value="6">6</option>
 									<option value="5">5</option>
 									<option value="4">4</option>
 									<option value="3">3</option>
@@ -148,6 +215,11 @@
 						<div class="control">
 							<span class="select">
 								<select id="diceMod" name="diceMod">
+									<option value="10">+10</option>
+									<option value="9">+9</option>
+									<option value="8">+8</option>
+									<option value="7">+7</option>
+									<option value="6">+6</option>
 									<option value="5">+5</option>
 									<option value="4">+4</option>
 									<option value="3">+3</option>
@@ -159,6 +231,11 @@
 									<option value="-3">-3</option>
 									<option value="-4">-4</option>
 									<option value="-5">-5</option>
+									<option value="-6">-6</option>
+									<option value="-7">-7</option>
+									<option value="-8">-8</option>
+									<option value="-9">-9</option>
+									<option value="-10">-10</option>
 								</select>
 							</span>
 						</div>
@@ -179,13 +256,19 @@
 					<li class="is-active">
 						<a data-target="abilities">
 							<span class="icon"><i class="fas fa-fist-raised"></i></span>
-							<span>Abilities</span>
+							<span class="is-hidden-mobile">Abilities</span>
 						</a>
 					</li>
+                    <li>
+                        <a data-target="skills">
+                            <span class="icon"><i class="fas fa-hiking"></i></span>
+                            <span class="is-hidden-mobile">Skills</span>
+                        </a>
+                    </li>
 					<li>
 						<a data-target="bag">
 							<span class="icon"><i class="fas fa-briefcase"></i></span>
-							<span>Bag</span>
+							<span class="is-hidden-mobile">Bag</span>
 						</a>
 					</li>
 				</ul>
@@ -193,22 +276,195 @@
 
 			<article id="abilities" class="tab-page">
 				<section>
-					<h2 class="is-size-4">Trick</h2>
-					<p id="trick">This is a trick.</p>
+                    <p class="is-size-5"><b>Sneak Attack</b></p>
+                    <p>+1d6 DMG to all surprise round attacks</p>
 				</section>
 				<hr/>
 				<section>
-					<h2 class="is-size-4">Perk</h2>
-					<p id="perk">This is a perk.</p>
+                    <p class="is-size-5"><b>Poisoned Blades</b></p>
+                    <p>Ifir coats her kama blades with a flask of Lala's paralyzing venom (4 uses, 1d4 hours of effect per hit)</p>
 				</section>
 				<hr/>
 				<section>
-					<h2 class="is-size-4">Feat</h2>
-					<p id="feat">This is a feat.</p>
+                    <p class="is-size-5"><b>Thieves' Vision</b></p>
+                    <p>Add half of level (minimum +1) when looking for traps and treasures</p>
+				</section>
+				<hr/>
+				<section>
+                    <p class="is-size-5"><b>Celestial Blood</b></p>
+                    <p>Darkvision (60ft.), +5 resistance to acid, cold, and electric damage, +2 to Diplomacy and Perception, and one use per day of Daylight spell</p>
+				</section>
+				<hr/>
+				<section>
+                    <p class="is-size-5"><b>Wings of Light</b></p>
+                    <p>Small angelic wings made of light appear at Ifir's ankles and allow her to fly for up to 6 hours.</p>
 				</section>
 			</article>
 
+            <article id="skills" class="tab-page is-hidden">
+                <div class="box table-box">
+                    <table class="table is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Mod</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Acrobatics</td>
+                                <td>+6</td>
+                            </tr>
+                            <tr>
+                                <td>Alchemy</td>
+                                <td>+2</td>
+                            </tr>
+                            <tr>
+                                <td>Animal Handling</td>
+                                <td>+3</td>
+                            </tr>
+                            <tr>
+                                <td>Athletics</td>
+                                <td>-1</td>
+                            </tr>
+                            <tr>
+                                <td>Appraisal</td>
+                                <td>+2</td>
+                            </tr>
+                            <tr>
+                                <td>Deception</td>
+                                <td>+7</td>
+                            </tr>
+                            <tr>
+                                <td>Diplomacy</td>
+                                <td>+5</td>
+                            </tr>
+                            <tr>
+                                <td>Disguise</td>
+                                <td>+7</td>
+                            </tr>
+                            <tr>
+                                <td>Intimidation</td>
+                                <td>+3</td>
+                            </tr>
+                            <tr>
+                                <td>Arcane Knowledge</td>
+                                <td>+0</td>
+                            </tr>
+                            <tr>
+                                <td>Dungeoneering Knowledge</td>
+                                <td>+3</td>
+                            </tr>
+                            <tr>
+                                <td>Geographic Knowledge</td>
+                                <td>+0</td>
+                            </tr>
+                            <tr>
+                                <td>Historical Knowledge</td>
+                                <td>+0</td>
+                            </tr>
+                            <tr>
+                                <td>Local Knowledge</td>
+                                <td>+0</td>
+                            </tr>
+                            <tr>
+                                <td>Magical Knowledge</td>
+                                <td>+0</td>
+                            </tr>
+                            <tr>
+                                <td>Medicinal Knowledge</td>
+                                <td>+0</td>
+                            </tr>
+                            <tr>
+                                <td>Knowledge&nbsp;of Nature</td>
+                                <td>+3</td>
+                            </tr>
+                            <tr>
+                                <td>Knowledge&nbsp;of Nobility</td>
+                                <td>+3</td>
+                            </tr>
+                            <tr>
+                                <td>Planar Knowledge</td>
+                                <td>+3</td>
+                            </tr>
+                            <tr>
+                                <td>Religious Knowledge</td>
+                                <td>+2</td>
+                            </tr>
+                            <tr>
+                                <td>Technological Knowledge</td>
+                                <td>+0</td>
+                            </tr>
+                            <tr>
+                                <td>Linguistics</td>
+                                <td>+6</td>
+                            </tr>
+                            <tr>
+                                <td>Perception</td>
+                                <td>+8</td>
+                            </tr>
+                            <tr>
+                                <td>Performance</td>
+                                <td>+7</td>
+                            </tr>
+                            <tr>
+                                <td>Profession</td>
+                                <td>+0</td>
+                            </tr>
+                            <tr>
+                                <td>Stealth</td>
+                                <td>+6</td>
+                            </tr>
+                            <tr>
+                                <td>Vehicle Handling</td>
+                                <td>+2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
 			<article id="bag" class="tab-page is-hidden">
+				<div class="box table-box">
+					<table class="table is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th colspan="3">Equipped</th>
+                            </tr>
+                        </thead>
+						<tbody>
+							<tr>
+								<td>Leather armor
+                                    <div class="tags">
+                                        <div class="tag is-rounded">Light</div>
+                                        <div class="tag is-rounded">+2 AC</div>
+                                    </div>
+								</td>
+							</tr>
+							<tr>
+								<td>Kama
+                                    <div class="tags">
+                                        <div class="tag is-rounded">Small</div>
+                                        <div class="tag is-rounded">Dual-wield</div>
+                                    </div>
+                                </td>
+							</tr>
+							<tr>
+								<td>Lala the Lindworm
+                                    <div class="tags">
+                                        <div class="tag is-rounded">3 HP</div>
+                                        <div class="tag is-rounded">16 AC</div>
+                                        <div class="tag is-rounded">-3 STR</div>
+                                        <div class="tag is-rounded">+3 DEX</div>
+                                        <div class="tag is-rounded">+1 INT</div>
+                                        <div class="tag is-rounded">Paralyzing bite</div>
+                                    </div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+                
 				<div class="level is-mobile">
 					<div class="level-left is-narrow">
 						<button class="button is-primary">Add an item</button>
@@ -217,10 +473,10 @@
 					<div class="level-right">
 						<div class="field has-addons">
 							<div class="control">
-								<input id="gold" type="number" name="" value="100" class="input has-text-right">
+								<button class="button is-static">$</button>
 							</div>
-							<div class="control">
-								<button class="button is-static">g</button>
+							<div class="control is-expanded">
+								<input id="pp" type="number" name="" value="138.80" step="0.01" class="input">
 							</div>
 						</div>
 					</div>
@@ -230,34 +486,72 @@
 					<table class="table is-fullwidth">
 						<tbody>
 							<tr>
-								<td>
-									<div class="level">
-										<div class="level-left">
-											Leather armor set
-										</div>
-
-										<div class="level-right">
-											<div class="tags">
-												<div class="tag is-rounded">+2 AC</div>
-												<div class="tag is-rounded">-1 to Initiative Rolls</div>
-											</div>
-										</div>
-									</div>
-								</td>
+								<td>Shamisen
+                                    <div class="tag is-rounded">Instrument</div>
+                                </td>
 							</tr>
 							<tr>
-								<td>Lotus Medallion</td>
+								<td>Throwing daggers
+                                    <div class="tag is-rounded">x4</div>
+                                </td>
 							</tr>
 							<tr>
-								<td>
-									<div class="level">
-										<div class="level-left">Scroll of Wind-walking</div>
-										<div class="level-right">
-											<div class="tag is-rounded">Burn to walk on air for 100ft</div>
-										</div>
-									</div>
-								</td>
+								<td>Caltrops</td>
 							</tr>
+							<tr>
+								<td>Fishing net</td>
+							</tr>
+							<tr>
+								<td>Empty flasks
+                                    <div class="tag is-rounded">x2</div>
+                                </td>
+							</tr>
+                            <tr>
+                                <td>Flask of anti-venom</td>
+                            </tr>
+                            <tr>
+                                <td>Flint and steel</td>
+                            </tr>
+                            <tr>
+                                <td>Ladder</td>
+                            </tr>
+                            <tr>
+                                <td>Mirror</td>
+                            </tr>
+                            <tr>
+                                <td>Oil flasks
+                                    <div class="tag is-rounded">x2</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Pouch
+                                    <div class="tag is-rounded">x2</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Sewing kit</td>
+                            </tr>
+                            <tr>
+                                <td>Soap</td>
+                            </tr>
+                            <tr>
+                                <td>Spade/shovel</td>
+                            </tr>
+                            <tr>
+                                <td>Spyglass</td>
+                            </tr>
+                            <tr>
+                                <td>Whetstone</td>
+                            </tr>
+                            <tr>
+                                <td>Disguise kit</td>
+                            </tr>
+                            <tr>
+                                <td>First aid kit</td>
+                            </tr>
+                            <tr>
+                                <td>Thieves kit</td>
+                            </tr>
 						</tbody>
 					</table>
 				</div>

@@ -30,3 +30,11 @@ body {
 .table-box>table {
 	border-radius: 6px;
 }
+
+#skills tr>td, #skills tr>th {
+    text-align: center;
+}
+
+#skills tr>td:first-of-type, #skills tr>th:first-of-type {
+    text-align: left;
+}
